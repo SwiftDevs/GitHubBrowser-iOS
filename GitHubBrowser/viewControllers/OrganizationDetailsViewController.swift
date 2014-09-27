@@ -27,14 +27,18 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         let tableHeaderView = UIView(frame: 
             CGRect(x: 0, y: 0, width: CGRectGetWidth(screen), height: 100)
         )
-        tableHeaderView.backgroundColor = UIColor.redColor()
+        tableHeaderView.backgroundColor = UIColor(
+            white: 0, alpha: 0.1
+        )
         self.mainTableView.tableHeaderView = tableHeaderView
 
         let imageViewWidth = CGRectGetHeight(tableHeaderView.frame) - 20
         organizationImageView = UIImageView(frame:
             CGRect(x: 10, y: 10, width: imageViewWidth, height: imageViewWidth)
         )
-        organizationImageView.backgroundColor = UIColor.yellowColor()
+        organizationImageView.backgroundColor = UIColor(
+            white: 0, alpha: 0.7
+        )
         tableHeaderView.addSubview(organizationImageView)
 
         nameLabel = UILabel(frame:
@@ -46,6 +50,7 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
                 height: imageViewWidth * 0.5
             )
         )
+        nameLabel.font = UIFont.boldSystemFontOfSize(22)
         tableHeaderView.addSubview(nameLabel)
 
         locationLabel = UILabel(frame:
@@ -56,6 +61,8 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
                 height: CGRectGetHeight(nameLabel.frame)
             )
         )
+        locationLabel.font = UIFont.systemFontOfSize(15)
+        locationLabel.textColor = UIColor(white: 0, alpha: 0.5)
         tableHeaderView.addSubview(locationLabel)
     }
 
@@ -67,6 +74,16 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
                 self.organization = org
                 self.locationLabel.text = org.location
                 self.nameLabel.text = org.name
+
+                dispatch_async(dispatch_get_global_queue( 
+                    DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                    var test =  UIImage(data: NSData(contentsOfURL: 
+                            NSURL(string: self.organization.avatarUrl)
+                        )
+                    )
+                    self.organizationImageView.image = test
+                })
+
             }
         })
     }
@@ -101,8 +118,9 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         let tableViewCell = UITableViewCell(style: UITableViewCellStyle.Value1,
           reuseIdentifier: reuseIdentifier
         )
-        tableViewCell.contentView.backgroundColor = UIColor.greenColor()
+        tableViewCell.contentView.backgroundColor = UIColor(white: 0, alpha: 0.9)
         tableViewCell.textLabel?.text = objectAtIndexPath(indexPath).name
+        tableViewCell.textLabel?.font = UIFont.systemFontOfSize(15)
         return tableViewCell
     }
     override func tableView(tableView: UITableView,

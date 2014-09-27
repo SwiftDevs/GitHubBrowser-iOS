@@ -38,6 +38,7 @@ class GitHubBrowserTableViewController: GitHubBrowserViewController,
         )
         mainTableView.dataSource = self
         mainTableView.delegate   = self
+        // mainTableView.style      = UITableViewStyle.Grouped
         view.addSubview(mainTableView)
     }
 
