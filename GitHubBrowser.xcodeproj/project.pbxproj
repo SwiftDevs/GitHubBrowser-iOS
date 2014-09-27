@@ -33,6 +33,8 @@
 		56E0838519D74EEC0099A356 /* GitHubBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */; };
 		56E0838B19D754E20099A356 /* OrganizationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838A19D754E20099A356 /* OrganizationDetailsViewController.swift */; };
 		AA5724A126341856EA68E79A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7378536E73310D97FA35EB /* libPods.a */; };
+		ABEECFCE19D754EB0020D266 /* secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ABEECFCC19D754EB0020D266 /* secrets.xcconfig */; };
+		ABEECFCF19D754EB0020D266 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEECFCD19D754EB0020D266 /* TemplateIcon2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubBrowserViewController.swift; sourceTree = "<group>"; };
 		56E0838A19D754E20099A356 /* OrganizationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizationDetailsViewController.swift; path = viewControllers/OrganizationDetailsViewController.swift; sourceTree = "<group>"; };
 		7C7378536E73310D97FA35EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABEECFCC19D754EB0020D266 /* secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
+		ABEECFCD19D754EB0020D266 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		E3FC59815301DD57AE3C6D9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +115,8 @@
 		56E0832119D749620099A356 = {
 			isa = PBXGroup;
 			children = (
+				ABEECFCC19D754EB0020D266 /* secrets.xcconfig */,
+				ABEECFCD19D754EB0020D266 /* TemplateIcon2x.png */,
 				56E0834F19D74B7E0099A356 /* Hacktoolkit */,
 				56E0832C19D749620099A356 /* GitHubBrowser */,
 				56E0834219D749620099A356 /* GitHubBrowserTests */,
@@ -383,6 +389,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E0837319D74C9F0099A356 /* secrets.xcconfig in Resources */,
+				ABEECFCE19D754EB0020D266 /* secrets.xcconfig in Resources */,
+				ABEECFCF19D754EB0020D266 /* TemplateIcon2x.png in Resources */,
 				56E0833519D749620099A356 /* Main.storyboard in Resources */,
 				56E0833A19D749620099A356 /* LaunchScreen.xib in Resources */,
 				56E0833719D749620099A356 /* Images.xcassets in Resources */,
