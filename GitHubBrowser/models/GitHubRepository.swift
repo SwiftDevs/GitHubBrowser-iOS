@@ -51,6 +51,10 @@ class GitHubRepository: GitHubResource {
         self.stargazersCount = repositoryDict["stargazersCount"] as? Int
         self.watchersCount = repositoryDict["watchersCount"] as? Int
         self.size = repositoryDict["size"] as? Int
+
+        var ownerDict = repositoryDict["owner"] as? NSDictionary
+        var owner = GitHubUser(userDict: ownerDict)
+        self.owner = owner
     }
 }
 
