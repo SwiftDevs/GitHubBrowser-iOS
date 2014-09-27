@@ -38,6 +38,19 @@ class GitHubRepository: GitHubResource {
 
     init(repositoryDict: NSDictionary) {
         self.name = repositoryDict["name"] as? String
+        self.fullName = repositoryDict["fullName"] as? String
+        self.description = repositoryDict["description"] as? String
+        self.url = repositoryDict["url"] as? String
+        self.htmlUrl = repositoryDict["htmlUrl"] as? String
+        self.cloneUrl = repositoryDict["cloneUrl"] as? String
+        self.gitUrl = repositoryDict["gitUrl"] as? String
+        self.sshUrl = repositoryDict["sshUrl"] as? String
+        self.mirrorUrl = repositoryDict["mirrorUrl"] as? String
+        self.homepage = repositoryDict["homepage"] as? String
+        self.forksCount = repositoryDict["forksCount"] as? Int
+        self.stargazersCount = repositoryDict["stargazersCount"] as? Int
+        self.watchersCount = repositoryDict["watchersCount"] as? Int
+        self.size = repositoryDict["size"] as? Int
     }
 }
 
