@@ -31,5 +31,7 @@ class GitHubBrowserViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+  func screenRect() -> CGRect {
+    return UIScreen.mainScreen().bounds
+  }
 }

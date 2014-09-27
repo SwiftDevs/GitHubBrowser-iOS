@@ -10,11 +10,8 @@ import UIKit
 
 class UserDetailsViewController: GitHubBrowserViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  override func viewDidLoad() {
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
