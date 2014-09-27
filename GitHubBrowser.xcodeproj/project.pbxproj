@@ -35,6 +35,7 @@
 		56E0838519D74EEC0099A356 /* GitHubBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */; };
 		56E0838B19D754E20099A356 /* OrganizationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838A19D754E20099A356 /* OrganizationDetailsViewController.swift */; };
 		AA5724A126341856EA68E79A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7378536E73310D97FA35EB /* libPods.a */; };
+		ABA58EC719D777DE005A3772 /* GitHubBrowserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA58EC619D777DE005A3772 /* GitHubBrowserTableViewController.swift */; };
 		ABEECFCE19D754EB0020D266 /* secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = ABEECFCC19D754EB0020D266 /* secrets.xcconfig */; };
 		ABEECFCF19D754EB0020D266 /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ABEECFCD19D754EB0020D266 /* TemplateIcon2x.png */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,7 @@
 		56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubBrowserViewController.swift; sourceTree = "<group>"; };
 		56E0838A19D754E20099A356 /* OrganizationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrganizationDetailsViewController.swift; path = viewControllers/OrganizationDetailsViewController.swift; sourceTree = "<group>"; };
 		7C7378536E73310D97FA35EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABA58EC619D777DE005A3772 /* GitHubBrowserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubBrowserTableViewController.swift; sourceTree = "<group>"; };
 		ABEECFCC19D754EB0020D266 /* secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
 		ABEECFCD19D754EB0020D266 /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
 		E3FC59815301DD57AE3C6D9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				56E0838219D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift */,
 				56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */,
 				56E0838A19D754E20099A356 /* OrganizationDetailsViewController.swift */,
+				ABA58EC619D777DE005A3772 /* GitHubBrowserTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				56E0836A19D74B7E0099A356 /* YelpCategory.swift in Sources */,
 				565A457519D7689C00B48084 /* GitHubResource.swift in Sources */,
 				56E0837F19D74E5D0099A356 /* FolderDetailsViewController.swift in Sources */,
+				ABA58EC719D777DE005A3772 /* GitHubBrowserTableViewController.swift in Sources */,
 				56E0833019D749620099A356 /* AppDelegate.swift in Sources */,
 				56E0838119D74E690099A356 /* FileDetailsViewController.swift in Sources */,
 			);
