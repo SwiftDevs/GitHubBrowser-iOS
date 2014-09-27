@@ -10,37 +10,36 @@ import UIKit
 
 class GitHubBrowserTableViewController: GitHubBrowserViewController, 
   UITableViewDataSource, UITableViewDelegate {
+    var mainTableView: UITableView!
 
+    override init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        title = "Hacktoolkit"
+    }
     override init(nibName nibNameOrNil: String!, 
         bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-  override init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    title = "Hacktoolkit"
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    let mainView = UIView(frame: 
-      CGRect(x: 0, y: 0, 
-        width: CGRectGetWidth(screenRect()), 
-        height: CGRectGetHeight(screenRect())
-      )
-    )
-    view = mainView
-    let tableView = UITableView(frame:
-      CGRect(x: 0, y: 0, 
-        width: CGRectGetWidth(screenRect()), 
-        height: CGRectGetHeight(screenRect())
-      )
-    )
-    tableView.backgroundColor = UIColor.redColor()
-    tableView.dataSource = self
-    tableView.delegate = self
-    view.addSubview(tableView)
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let mainView = UIView(frame: 
+          CGRect(x: 0, y: 0, 
+            width: CGRectGetWidth(screenRect()), 
+            height: CGRectGetHeight(screenRect())
+          )
+        )
+        view = mainView
+        mainTableView = UITableView(frame:
+          CGRect(x: 0, y: 0, 
+            width: CGRectGetWidth(screenRect()), 
+            height: CGRectGetHeight(screenRect())
+          )
+        )
+        mainTableView.dataSource = self
+        mainTableView.delegate   = self
+        view.addSubview(mainTableView)
+    }
 
     // Protocols
     // Protocols - UITableViewDataSource

@@ -9,58 +9,86 @@
 import UIKit
 
 class OrganizationDetailsViewController: GitHubBrowserTableViewController {
-  override init(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    title = "Hacktoolkit"
-  }
+    let organizationName = "hacktoolkit"
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    let mainView = UIView(frame: 
-      CGRect(x: 0, y: 0, 
-        width: CGRectGetWidth(screenRect()), 
-        height: CGRectGetHeight(screenRect())
-      )
-    )
-    view = mainView
-    let tableView = UITableView(frame:
-      CGRect(x: 0, y: 0, 
-        width: CGRectGetWidth(screenRect()), 
-        height: CGRectGetHeight(screenRect())
-      )
-    )
-    tableView.backgroundColor = UIColor.redColor()
-    tableView.dataSource = self
-    tableView.delegate = self
-    view.addSubview(tableView)
+    var locationLabel: UILabel!
+    var nameLabel: UILabel!
+    var organization: GitHubOrganization!
+    var organizationImageView: UIImageView!
 
-    var hacktoolkitOrg = GitHubOrganization(name: "hacktoolkit", onInflated: {
-        (org: GitHubResource) -> () in
-        if let org = org as? GitHubOrganization {
-            println(org.location)
-            println(org.name)
+    override init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        title = organizationName
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let screen = screenRect()
+        let tableHeaderView = UIView(frame: 
+            CGRect(x: 0, y: 0, width: CGRectGetWidth(screen), height: 100)
+        )
+        tableHeaderView.backgroundColor = UIColor.redColor()
+        self.mainTableView.tableHeaderView = tableHeaderView
+
+        let imageViewWidth = CGRectGetHeight(tableHeaderView.frame) - 20
+        organizationImageView = UIImageView(frame:
+            CGRect(x: 10, y: 10, width: imageViewWidth, height: imageViewWidth)
+        )
+        organizationImageView.backgroundColor = UIColor.yellowColor()
+        tableHeaderView.addSubview(organizationImageView)
+
+        nameLabel = UILabel(frame:
+            CGRect(
+                x: CGRectGetMinX(organizationImageView.frame) +
+                    CGRectGetWidth(organizationImageView.frame) + 10,
+                y: CGRectGetMinY(organizationImageView.frame),
+                width: CGRectGetWidth(screen),
+                height: imageViewWidth * 0.5
+            )
+        )
+        tableHeaderView.addSubview(nameLabel)
+
+        locationLabel = UILabel(frame:
+            CGRect(
+                x: CGRectGetMinX(nameLabel.frame),
+                y: CGRectGetMaxY(nameLabel.frame),
+                width: CGRectGetWidth(nameLabel.frame),
+                height: CGRectGetHeight(nameLabel.frame)
+            )
+        )
+        tableHeaderView.addSubview(locationLabel)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        var hacktoolkitOrg = GitHubOrganization(name: organizationName, 
+            onInflated: {
+            (org: GitHubResource) -> () in
+            if let org = org as? GitHubOrganization {
+                self.organization = org
+                self.locationLabel.text = org.location
+                self.nameLabel.text = org.name
+            }
+        })
+    }
+
+    // Methods
+    class RepositoryStruct {
+        var name: String
+        init(name: String) {
+            self.name = name
         }
-    })
-  }
-
-  // Methods
-  class RepositoryStruct {
-    var name: String
-    init(name: String) {
-      self.name = name
     }
-  }
-  func objects() -> [RepositoryStruct] {
-    var array = [RepositoryStruct]()
-    for i in 1...10 {
-      let repo = RepositoryStruct(name: "Repository \(i)")
-      array.append(repo)
+    func objects() -> [RepositoryStruct] {
+        var array = [RepositoryStruct]()
+        for i in 1...10 {
+          let repo = RepositoryStruct(name: "Repository \(i)")
+          array.append(repo)
+        }
+        return array
     }
-    return array
-  }
-  func objectAtIndexPath(indexPath: NSIndexPath) -> RepositoryStruct {
-    return objects()[indexPath.row]
-  }
+    func objectAtIndexPath(indexPath: NSIndexPath) -> RepositoryStruct {
+        return objects()[indexPath.row]
+    }
 
     // Protocols
     // Protocols - UITableViewDataSource
