@@ -23,15 +23,15 @@ class GitHubClient {
         return Static.instance!
     }
 
-    func makeApiRequest(resource: String, callback: (NSDictionary) -> ()) {
+    func makeApiRequest(resource: String, callback: (AnyObject) -> ()) {
         var apiUrl = "\(GITHUB_API_BASE_URL)\(resource)"
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(apiUrl))
 
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) in
             var errorValue: NSError? = nil
-            let resultJSON: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue)
-            if let resultJSON = resultJSON as? NSDictionary {
-                callback(resultJSON)
+            let result: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue)
+            if result != nil {
+                callback(result!)
             } else {
                 HTKNotificationUtils.displayNetworkErrorMessage()
             }

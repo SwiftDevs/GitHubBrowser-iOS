@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		565A457319D7687500B48084 /* GitHubOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457219D7687500B48084 /* GitHubOrganization.swift */; };
 		565A457519D7689C00B48084 /* GitHubResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457419D7689C00B48084 /* GitHubResource.swift */; };
+		565A457719D77C9100B48084 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457619D77C9100B48084 /* GitHubRepository.swift */; };
+		565A457919D780BE00B48084 /* GitHubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457819D780BE00B48084 /* GitHubUser.swift */; };
 		56B1D69F19D757E600D8BEAF /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1D69E19D757E600D8BEAF /* GitHubClient.swift */; };
 		56E0833019D749620099A356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0832F19D749620099A356 /* AppDelegate.swift */; };
 		56E0833519D749620099A356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E0833319D749620099A356 /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 		4B2CEEB10F3C70BED94B9D11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		565A457219D7687500B48084 /* GitHubOrganization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubOrganization.swift; path = models/GitHubOrganization.swift; sourceTree = "<group>"; };
 		565A457419D7689C00B48084 /* GitHubResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubResource.swift; path = models/GitHubResource.swift; sourceTree = "<group>"; };
+		565A457619D77C9100B48084 /* GitHubRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepository.swift; path = models/GitHubRepository.swift; sourceTree = "<group>"; };
+		565A457819D780BE00B48084 /* GitHubUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubUser.swift; path = models/GitHubUser.swift; sourceTree = "<group>"; };
 		56B1D69E19D757E600D8BEAF /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
 		56E0832A19D749620099A356 /* GitHubBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E0832E19D749620099A356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				56B1D69E19D757E600D8BEAF /* GitHubClient.swift */,
 				565A457219D7687500B48084 /* GitHubOrganization.swift */,
 				565A457419D7689C00B48084 /* GitHubResource.swift */,
+				565A457619D77C9100B48084 /* GitHubRepository.swift */,
+				565A457819D780BE00B48084 /* GitHubUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -462,9 +468,11 @@
 				565A457319D7687500B48084 /* GitHubOrganization.swift in Sources */,
 				56E0836619D74B7E0099A356 /* RottenTomatoesClient.swift in Sources */,
 				56E0838319D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift in Sources */,
+				565A457919D780BE00B48084 /* GitHubUser.swift in Sources */,
 				56E0837D19D74E470099A356 /* RepositoryDetailsViewController.swift in Sources */,
 				56E0836719D74B7E0099A356 /* Tweet.swift in Sources */,
 				56E0837B19D74E310099A356 /* UserDetailsViewController.swift in Sources */,
+				565A457719D77C9100B48084 /* GitHubRepository.swift in Sources */,
 				56E0836819D74B7E0099A356 /* TwitterClient.swift in Sources */,
 				56E0838519D74EEC0099A356 /* GitHubBrowserViewController.swift in Sources */,
 				56E0836E19D74B7E0099A356 /* HTKUtils.swift in Sources */,

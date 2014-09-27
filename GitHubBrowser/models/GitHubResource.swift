@@ -27,7 +27,7 @@ class GitHubResource {
         return ""
     }
 
-    func inflater(resultJSON : NSDictionary) {
+    func inflater(result : AnyObject) {
         self.inflated = true
         if self.onInflated != nil {
             self.onInflated(self)
