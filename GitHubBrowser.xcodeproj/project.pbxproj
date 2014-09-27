@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		565A457319D7687500B48084 /* GitHubOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457219D7687500B48084 /* GitHubOrganization.swift */; };
+		565A457519D7689C00B48084 /* GitHubResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457419D7689C00B48084 /* GitHubResource.swift */; };
 		56B1D69F19D757E600D8BEAF /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B1D69E19D757E600D8BEAF /* GitHubClient.swift */; };
 		56E0833019D749620099A356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0832F19D749620099A356 /* AppDelegate.swift */; };
 		56E0833519D749620099A356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E0833319D749620099A356 /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 
 /* Begin PBXFileReference section */
 		4B2CEEB10F3C70BED94B9D11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		565A457219D7687500B48084 /* GitHubOrganization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubOrganization.swift; path = models/GitHubOrganization.swift; sourceTree = "<group>"; };
+		565A457419D7689C00B48084 /* GitHubResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubResource.swift; path = models/GitHubResource.swift; sourceTree = "<group>"; };
 		56B1D69E19D757E600D8BEAF /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
 		56E0832A19D749620099A356 /* GitHubBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E0832E19D749620099A356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -147,7 +151,6 @@
 				56E0833619D749620099A356 /* Images.xcassets */,
 				56E0833819D749620099A356 /* LaunchScreen.xib */,
 				56E0832D19D749620099A356 /* Supporting Files */,
-				56B1D69E19D757E600D8BEAF /* GitHubClient.swift */,
 			);
 			path = GitHubBrowser;
 			sourceTree = "<group>";
@@ -293,6 +296,9 @@
 		56E0837619D74D680099A356 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				56B1D69E19D757E600D8BEAF /* GitHubClient.swift */,
+				565A457219D7687500B48084 /* GitHubOrganization.swift */,
+				565A457419D7689C00B48084 /* GitHubResource.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				56E0836919D74B7E0099A356 /* YelpBusinessResult.swift in Sources */,
 				56E0836519D74B7E0099A356 /* RottenTomatoesMovie.swift in Sources */,
 				56E0836419D74B7E0099A356 /* DataStructures.swift in Sources */,
+				565A457319D7687500B48084 /* GitHubOrganization.swift in Sources */,
 				56E0836619D74B7E0099A356 /* RottenTomatoesClient.swift in Sources */,
 				56E0838319D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift in Sources */,
 				56E0837D19D74E470099A356 /* RepositoryDetailsViewController.swift in Sources */,
@@ -461,6 +468,7 @@
 				56E0838B19D754E20099A356 /* OrganizationDetailsViewController.swift in Sources */,
 				56B1D69F19D757E600D8BEAF /* GitHubClient.swift in Sources */,
 				56E0836A19D74B7E0099A356 /* YelpCategory.swift in Sources */,
+				565A457519D7689C00B48084 /* GitHubResource.swift in Sources */,
 				56E0837F19D74E5D0099A356 /* FolderDetailsViewController.swift in Sources */,
 				56E0833019D749620099A356 /* AppDelegate.swift in Sources */,
 				56E0838119D74E690099A356 /* FileDetailsViewController.swift in Sources */,

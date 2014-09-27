@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrganizationDetailsViewController: GitHubBrowserViewController, 
+class OrganizationDetailsViewController: GitHubBrowserViewController,
   UITableViewDataSource, UITableViewDelegate {
 
   override init(coder aDecoder: NSCoder) {
@@ -35,6 +35,14 @@ class OrganizationDetailsViewController: GitHubBrowserViewController,
     tableView.dataSource = self
     tableView.delegate = self
     view.addSubview(tableView)
+
+    var hacktoolkitOrg = GitHubOrganization(name: "hacktoolkit", onInflated: {
+        (org: GitHubResource) -> () in
+        if let org = org as? GitHubOrganization {
+            println(org.location)
+            println(org.name)
+        }
+    })
   }
 
   // Methods
@@ -75,4 +83,5 @@ class OrganizationDetailsViewController: GitHubBrowserViewController,
     numberOfRowsInSection section: Int) -> Int {
     return objects().count
   }
+
 }
