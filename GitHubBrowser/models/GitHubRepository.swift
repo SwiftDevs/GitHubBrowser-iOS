@@ -36,7 +36,7 @@ class GitHubRepository: GitHubResource {
     //    "created_at": "2011-01-26T19:01:12Z",
     //    "updated_at": "2011-01-26T19:14:43Z",
 
-    init(repositoryDict: repositoryDict) {
+    init(repositoryDict: NSDictionary) {
         self.name = repositoryDict["name"] as? String
     }
 }
