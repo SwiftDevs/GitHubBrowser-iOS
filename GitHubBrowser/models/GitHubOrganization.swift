@@ -34,7 +34,7 @@ class GitHubOrganization: GitHubResource {
     var htmlURL: String!
 
     // Organization relations
-    var repositories = [GitHubRepository]()
+    var repositories: [GitHubRepository]!
 
     init(name: String, onInflated: ((GitHubResource) -> ())? = nil) {
         self.handle = name
@@ -66,7 +66,7 @@ class GitHubOrganization: GitHubResource {
         super.inflater(resultJSON)
     }
 
-    func getRepositories() {
+    func getRepositories(onInflated: ([GitHubRepository]) -> ()) {
         var resource = "\(self.getResourceURL())/repos"
         GitHubClient.sharedInstance.makeApiRequest(resource, callback: {
             (results: AnyObject) -> () in
@@ -75,6 +75,7 @@ class GitHubOrganization: GitHubResource {
                 (repositoryDict: NSDictionary) -> GitHubRepository in
                 GitHubRepository(repositoryDict: repositoryDict)
             }
+            self.repositories = repositories
         })
     }
 }

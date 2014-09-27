@@ -60,7 +60,7 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        var hacktoolkitOrg = GitHubOrganization(name: organizationName, 
+        var org = GitHubOrganization(name: organizationName,
             onInflated: {
             (org: GitHubResource) -> () in
             if let org = org as? GitHubOrganization {
@@ -69,6 +69,10 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
                 self.nameLabel.text = org.name
             }
         })
+        org.getRepositories {
+            (repositories: [GitHubRepository]) -> () in
+            // do something
+        }
     }
 
     // Methods
