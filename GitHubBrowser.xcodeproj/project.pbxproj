@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		56E0833019D749620099A356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0832F19D749620099A356 /* AppDelegate.swift */; };
-		56E0833219D749620099A356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0833119D749620099A356 /* ViewController.swift */; };
 		56E0833519D749620099A356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56E0833319D749620099A356 /* Main.storyboard */; };
 		56E0833719D749620099A356 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E0833619D749620099A356 /* Images.xcassets */; };
 		56E0833A19D749620099A356 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E0833819D749620099A356 /* LaunchScreen.xib */; };
@@ -25,6 +24,12 @@
 		56E0836D19D74B7E0099A356 /* HTKNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0836219D74B7E0099A356 /* HTKNotificationUtils.swift */; };
 		56E0836E19D74B7E0099A356 /* HTKUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0836319D74B7E0099A356 /* HTKUtils.swift */; };
 		56E0837319D74C9F0099A356 /* secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 56E0837219D74C9F0099A356 /* secrets.xcconfig */; };
+		56E0837B19D74E310099A356 /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0837A19D74E310099A356 /* UserDetailsViewController.swift */; };
+		56E0837D19D74E470099A356 /* RepositoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0837C19D74E470099A356 /* RepositoryDetailsViewController.swift */; };
+		56E0837F19D74E5D0099A356 /* FolderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0837E19D74E5D0099A356 /* FolderDetailsViewController.swift */; };
+		56E0838119D74E690099A356 /* FileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838019D74E690099A356 /* FileDetailsViewController.swift */; };
+		56E0838319D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838219D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift */; };
+		56E0838519D74EEC0099A356 /* GitHubBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */; };
 		AA5724A126341856EA68E79A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7378536E73310D97FA35EB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +48,6 @@
 		56E0832A19D749620099A356 /* GitHubBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E0832E19D749620099A356 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56E0832F19D749620099A356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56E0833119D749620099A356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		56E0833419D749620099A356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56E0833619D749620099A356 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		56E0833919D749620099A356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -63,6 +67,12 @@
 		56E0836319D74B7E0099A356 /* HTKUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTKUtils.swift; sourceTree = "<group>"; };
 		56E0836F19D74C100099A356 /* GitHubBrowser-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GitHubBrowser-Bridging-Header.h"; sourceTree = "<group>"; };
 		56E0837219D74C9F0099A356 /* secrets.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = SOURCE_ROOT; };
+		56E0837A19D74E310099A356 /* UserDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDetailsViewController.swift; path = viewControllers/UserDetailsViewController.swift; sourceTree = "<group>"; };
+		56E0837C19D74E470099A356 /* RepositoryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryDetailsViewController.swift; path = viewControllers/RepositoryDetailsViewController.swift; sourceTree = "<group>"; };
+		56E0837E19D74E5D0099A356 /* FolderDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FolderDetailsViewController.swift; path = viewControllers/FolderDetailsViewController.swift; sourceTree = "<group>"; };
+		56E0838019D74E690099A356 /* FileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileDetailsViewController.swift; path = viewControllers/FileDetailsViewController.swift; sourceTree = "<group>"; };
+		56E0838219D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubBrowserNavigationViewController.swift; path = viewControllers/GitHubBrowserNavigationViewController.swift; sourceTree = "<group>"; };
+		56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubBrowserViewController.swift; sourceTree = "<group>"; };
 		7C7378536E73310D97FA35EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3FC59815301DD57AE3C6D9A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,8 +129,10 @@
 		56E0832C19D749620099A356 /* GitHubBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				56E0837619D74D680099A356 /* Models */,
+				56E0837519D74D590099A356 /* Views */,
+				56E0837419D74D500099A356 /* View Controllers */,
 				56E0832F19D749620099A356 /* AppDelegate.swift */,
-				56E0833119D749620099A356 /* ViewController.swift */,
 				56E0833319D749620099A356 /* Main.storyboard */,
 				56E0833619D749620099A356 /* Images.xcassets */,
 				56E0833819D749620099A356 /* LaunchScreen.xib */,
@@ -244,6 +256,33 @@
 				56E0836319D74B7E0099A356 /* HTKUtils.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		56E0837419D74D500099A356 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				56E0837A19D74E310099A356 /* UserDetailsViewController.swift */,
+				56E0837C19D74E470099A356 /* RepositoryDetailsViewController.swift */,
+				56E0837E19D74E5D0099A356 /* FolderDetailsViewController.swift */,
+				56E0838019D74E690099A356 /* FileDetailsViewController.swift */,
+				56E0838219D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift */,
+				56E0838419D74EEC0099A356 /* GitHubBrowserViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		56E0837519D74D590099A356 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		56E0837619D74D680099A356 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		8807F2526527F7D92841DCED /* Pods */ = {
@@ -398,12 +437,17 @@
 				56E0836519D74B7E0099A356 /* RottenTomatoesMovie.swift in Sources */,
 				56E0836419D74B7E0099A356 /* DataStructures.swift in Sources */,
 				56E0836619D74B7E0099A356 /* RottenTomatoesClient.swift in Sources */,
+				56E0838319D74EBC0099A356 /* GitHubBrowserNavigationViewController.swift in Sources */,
+				56E0837D19D74E470099A356 /* RepositoryDetailsViewController.swift in Sources */,
 				56E0836719D74B7E0099A356 /* Tweet.swift in Sources */,
+				56E0837B19D74E310099A356 /* UserDetailsViewController.swift in Sources */,
 				56E0836819D74B7E0099A356 /* TwitterClient.swift in Sources */,
+				56E0838519D74EEC0099A356 /* GitHubBrowserViewController.swift in Sources */,
 				56E0836E19D74B7E0099A356 /* HTKUtils.swift in Sources */,
 				56E0836A19D74B7E0099A356 /* YelpCategory.swift in Sources */,
-				56E0833219D749620099A356 /* ViewController.swift in Sources */,
+				56E0837F19D74E5D0099A356 /* FolderDetailsViewController.swift in Sources */,
 				56E0833019D749620099A356 /* AppDelegate.swift in Sources */,
+				56E0838119D74E690099A356 /* FileDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
