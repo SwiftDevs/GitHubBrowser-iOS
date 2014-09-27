@@ -73,24 +73,6 @@
             </objects>
             <point key="canvasLocation" x="-249" y="447"/>
         </scene>
-        <!--RepositoryDetailsViewController-->
-        <scene sceneID="T2C-xh-y09">
-            <objects>
-                <viewController id="LTs-6O-6lp" userLabel="RepositoryDetailsViewController" customClass="RepositoryDetailsViewController" customModule="GitHubBrowser" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="akf-Y7-Vf5"/>
-                        <viewControllerLayoutGuide type="bottom" id="xZi-70-gG3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wSQ-X8-R81">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qaI-fn-lK9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1267" y="-239"/>
-        </scene>
         <!--FolderDetailsViewController-->
         <scene sceneID="2Od-kq-XS5">
             <objects>
