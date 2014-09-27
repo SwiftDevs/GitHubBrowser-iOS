@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="99y-mG-vCR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99y-mG-vCR">
                                 <rect key="frame" x="10" y="74" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="14c-AV-auv"/>
@@ -112,7 +112,7 @@
         <!--OrganizationDetailsViewController-->
         <scene sceneID="hqy-d5-bEh">
             <objects>
-                <viewController id="wSH-ZN-Ver" userLabel="OrganizationDetailsViewController" customClass="OrganizationDetailsViewController" sceneMemberID="viewController">
+                <viewController id="wSH-ZN-Ver" userLabel="OrganizationDetailsViewController" customClass="OrganizationDetailsViewController" customModule="GitHubBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OgT-XC-Nle"/>
                         <viewControllerLayoutGuide type="bottom" id="jMq-HQ-iCv"/>
