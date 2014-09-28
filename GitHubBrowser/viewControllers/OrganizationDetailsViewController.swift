@@ -8,7 +8,9 @@
 
 import UIKit
 
-class OrganizationDetailsViewController: GitHubBrowserTableViewController {
+class OrganizationDetailsViewController: GitHubBrowserTableViewController,
+    GitHubOrganizationDelegate {
+
     let organizationName = "hacktoolkit"
 
     var locationLabel: UILabel!
@@ -89,13 +91,11 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
 
             if let org = org as? GitHubOrganization {
                 self.organization          = org
-                // self.organization.name     = self.organizationName
-                // self.organization.location = "San Francisco, CA"
+                self.organization.delegate = self
                 self.locationLabel.text = self.organization.location
                 self.nameLabel.text     = self.organization.name
 
                 dispatch_async(dispatch_get_main_queue(), {
-                    // self.organization.avatarUrl = "https://avatars0.githubusercontent.com/u/5404851?v=2&s=200"
                     if self.organization.avatarUrl != nil {
                         var test =  UIImage(data: NSData(contentsOfURL: 
                                 NSURL(string: self.organization.avatarUrl)
@@ -109,9 +109,8 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         })
         org.getRepositories {
             (repositories: [GitHubRepository]) -> () in
-
-            self.mainTableView.reloadData()
         }
+        self.mainTableView.reloadData()
     }
 
     let repo1 = GitHubRepository(repositoryDict: [
@@ -121,13 +120,11 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
 
     // Methods
     func objects() -> [GitHubRepository] {
-        if self.organization != nil && 
-            self.organization.repositories.count > 0 {
-
+        if self.organization != nil {
             return self.organization.repositories
         }
-        return [repo1]
-        // return [GitHubRepository]()
+        // return [repo1]
+        return [GitHubRepository]()
     }
     func objectAtIndexPath(indexPath: NSIndexPath) -> GitHubRepository {
         return objects()[indexPath.row]
@@ -188,5 +185,10 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
     func tableView(tableView: UITableView, 
         heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 88
+    }
+
+    // Protocols - GitHubOrganizationDelegate
+    func didFinishFetching() {
+        self.mainTableView.reloadData()
     }
 }

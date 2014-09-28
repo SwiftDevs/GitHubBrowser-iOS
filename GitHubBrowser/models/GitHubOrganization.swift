@@ -8,8 +8,13 @@
 
 import Foundation
 
+protocol GitHubOrganizationDelegate {
+    func didFinishFetching()
+}
 
 class GitHubOrganization: GitHubResource {
+    var delegate: GitHubOrganizationDelegate?
+
     // https://developer.github.com/v3/orgs/
 
     let GITHUB_ORGANIZATION_RESOURCE_BASE = "/orgs/"
@@ -77,6 +82,7 @@ class GitHubOrganization: GitHubResource {
                     GitHubRepository(repositoryDict: repositoryDict)
                 }
                 self.repositories = repositories
+                self.delegate!.didFinishFetching()
             } else {
                 HTKNotificationUtils.displayNetworkErrorMessage()
                 println(results)

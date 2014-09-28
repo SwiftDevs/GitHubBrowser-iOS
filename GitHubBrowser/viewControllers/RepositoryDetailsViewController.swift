@@ -12,6 +12,7 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
     var descriptionLabel: UILabel?
     var detailsView: UIView?
     var repository: GitHubRepository
+    var webView: UIWebView?
 
     init(repository repo: GitHubRepository) {
         repository = repo
@@ -29,8 +30,12 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
         detailsView = UIView(frame: screen)
         detailsView!.backgroundColor = UIColor.whiteColor()
         detailsView!.addSubview(descriptionLabel!)
-        
-        self.view.addSubview(detailsView!)
+
+        webView = UIWebView(frame: screen)
+        webView!.backgroundColor = UIColor.redColor()
+
+        // self.view.addSubview(detailsView!)
+        self.view.addSubview(webView!)
         self.mainTableView.hidden = true
     }
 
@@ -42,5 +47,13 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
             limitedToNumberOfLines: 0
         )
         self.descriptionLabel!.frame = rect
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let string = "http://google.com"
+        let url = NSURL(string: string)
+        let request = NSURLRequest(URL: url)
+        webView!.loadRequest(request)
     }
 }
