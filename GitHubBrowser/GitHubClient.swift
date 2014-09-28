@@ -28,7 +28,8 @@ class GitHubClient {
     func makeApiRequest(resource: String, callback: (AnyObject) -> ()) {
         var apiUrl = "\(GITHUB_API_BASE_URL)\(resource)"
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(apiUrl))
-
+        println("Hitting API: \(apiUrl)")
+        return
         var cachedResult: AnyObject? = cache[apiUrl]
         if cachedResult != nil {
             callback(cachedResult!)
