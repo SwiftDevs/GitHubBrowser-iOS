@@ -77,6 +77,7 @@ class GitHubOrganization: GitHubResource {
                     GitHubRepository(repositoryDict: repositoryDict)
                 }
                 self.repositories = repositories
+                onInflated(repositories)
             } else {
                 HTKNotificationUtils.displayNetworkErrorMessage()
                 println(results)
