@@ -39,7 +39,6 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
                 height: CGRectGetHeight(screen) - (20 + 44)
             )
         )
-        webView!.backgroundColor = UIColor.redColor()
 
         // self.view.addSubview(detailsView!)
         self.view.addSubview(webView!)
