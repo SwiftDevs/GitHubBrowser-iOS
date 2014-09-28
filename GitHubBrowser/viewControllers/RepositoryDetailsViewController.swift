@@ -10,6 +10,7 @@ import UIKit
 
 class RepositoryDetailsViewController: GitHubBrowserTableViewController {
     var descriptionLabel: UILabel?
+    var detailsView: UIView?
     var repository: GitHubRepository
 
     init(repository repo: GitHubRepository) {
@@ -24,7 +25,13 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
         let screen = screenRect()
         descriptionLabel = UILabel()
         descriptionLabel!.backgroundColor = UIColor.redColor()
-        self.view.addSubview(descriptionLabel!)
+
+        detailsView = UIView(frame: screen)
+        detailsView!.backgroundColor = UIColor.whiteColor()
+        detailsView!.addSubview(descriptionLabel!)
+        
+        self.view.addSubview(detailsView!)
+        self.mainTableView.hidden = true
     }
 
     override func viewWillAppear(animated: Bool) {
