@@ -82,7 +82,9 @@ class GitHubOrganization: GitHubResource {
                     GitHubRepository(repositoryDict: repositoryDict)
                 }
                 self.repositories = repositories
-                self.delegate!.didFinishFetching()
+                if self.delegate != nil {
+                    self.delegate!.didFinishFetching()
+                }
             } else {
                 HTKNotificationUtils.displayNetworkErrorMessage()
                 println(results)
