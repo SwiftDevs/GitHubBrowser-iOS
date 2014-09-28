@@ -38,6 +38,7 @@ class GitHubRepository: GitHubResource {
 
     // Repository relations
     var owner: GitHubUser!
+    var readme: GitHubRepositoryContent!
 
     init(repositoryDict: NSDictionary) {
         self.name = repositoryDict["name"] as? String
@@ -59,6 +60,27 @@ class GitHubRepository: GitHubResource {
             var owner = GitHubUser(userDict: ownerDict)
             self.owner = owner
         }
+
+        super.init()
+    }
+
+    override func getResourceURL() -> String {
+        var resource = ""
+        if self.owner != nil {
+            resource = "/repos/\(self.owner.login)/\(self.name)"
+        }
+        return resource
+    }
+
+    func getReadme() {
+        var resource = "\(self.getResourceURL())/readme"
+        GitHubClient.sharedInstance.makeApiRequest(resource, callback: {
+            (result: AnyObject) -> () in
+            if let fileDict = result as? NSDictionary {
+                println("Got README")
+                self.readme = GitHubRepositoryContent(forFile: fileDict)
+            }
+        })
     }
 
     func getReadmeUrl() -> String {
