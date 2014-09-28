@@ -21,7 +21,6 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController,
 
     override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        title = organizationName
     }
 
     override func viewDidLoad() {
@@ -94,6 +93,9 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController,
                 self.organization.delegate = self
                 self.locationLabel.text = self.organization.location
                 self.nameLabel.text     = self.organization.name
+                if self.title == nil {
+                    self.title = self.organization.name
+                }
 
                 dispatch_async(dispatch_get_main_queue(), {
                     if self.organization.avatarUrl != nil {
