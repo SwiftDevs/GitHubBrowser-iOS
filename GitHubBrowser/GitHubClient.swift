@@ -8,6 +8,9 @@
 
 import Foundation
 
+let GITHUB_API_CONSUMER_KEY = HTKUtils.getStringFromInfoBundleForKey("GITHUB_API_CONSUMER_KEY")
+let GITHUB_API_CONSUMER_SECRET = HTKUtils.getStringFromInfoBundleForKey("GITHUB_API_CONSUMER_SECRET")
+
 let GITHUB_API_BASE_URL = "https://api.github.com"
 
 class GitHubClient {
@@ -27,9 +30,12 @@ class GitHubClient {
 
     func makeApiRequest(resource: String, callback: (AnyObject) -> ()) {
         var apiUrl = "\(GITHUB_API_BASE_URL)\(resource)"
+        // temporarily include App key to increase rate limit
+        // https://developer.github.com/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications
+        apiUrl = "\(apiUrl)?client_id=\(GITHUB_API_CONSUMER_KEY)&client_secret=\(GITHUB_API_CONSUMER_SECRET)"
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(apiUrl))
         println("Hitting API: \(apiUrl)")
-        return
+
         var cachedResult: AnyObject? = cache[apiUrl]
         if cachedResult != nil {
             callback(cachedResult!)
