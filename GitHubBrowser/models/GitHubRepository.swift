@@ -60,6 +60,11 @@ class GitHubRepository: GitHubResource {
             self.owner = owner
         }
     }
+
+    func getReadmeUrl() -> String {
+        var readmeUrl = "\(self.htmlUrl)/blob/master/README.md"
+        return readmeUrl
+    }
 }
 
 //{
