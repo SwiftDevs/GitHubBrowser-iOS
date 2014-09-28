@@ -26,6 +26,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>GITHUB_API_CONSUMER_KEY</key>
+	<string>$(GITHUB_API_CONSUMER_KEY)</string>
+	<key>GITHUB_API_CONSUMER_SECRET</key>
+	<string>$(GITHUB_API_CONSUMER_SECRET)</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

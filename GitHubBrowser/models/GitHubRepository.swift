@@ -36,6 +36,9 @@ class GitHubRepository: GitHubResource {
     //    "created_at": "2011-01-26T19:01:12Z",
     //    "updated_at": "2011-01-26T19:14:43Z",
 
+    // Repository relations
+    var owner: GitHubUser!
+
     init(repositoryDict: NSDictionary) {
         self.name = repositoryDict["name"] as? String
         self.fullName = repositoryDict["fullName"] as? String
@@ -52,9 +55,10 @@ class GitHubRepository: GitHubResource {
         self.watchersCount = repositoryDict["watchersCount"] as? Int
         self.size = repositoryDict["size"] as? Int
 
-        var ownerDict = repositoryDict["owner"] as? NSDictionary
-        var owner = GitHubUser(userDict: ownerDict)
-        self.owner = owner
+        if let ownerDict = repositoryDict["owner"] as? NSDictionary {
+            var owner = GitHubUser(userDict: ownerDict)
+            self.owner = owner
+        }
     }
 }
 
