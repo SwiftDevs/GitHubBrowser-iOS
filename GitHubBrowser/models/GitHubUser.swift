@@ -86,6 +86,7 @@ class GitHubUser: GitHubResource {
 //    "blog": "https://github.com/blog",
 //    "location": "San Francisco",
 //    "email": "octocat@github.com",
+//    "hireable": false,
 //    "bio": "There once was...",
 //    "public_repos": 2,
 //    "public_gists": 1,
