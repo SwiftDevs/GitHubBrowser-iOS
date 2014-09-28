@@ -9,9 +9,9 @@
 import UIKit
 
 class RepositoryDetailsViewController: GitHubBrowserTableViewController {
- var repository: AnyObject
+ var repository: GitHubRepository
 
-  init(repository repo: AnyObject) {
+  init(repository repo: GitHubRepository) {
     repository = repo
     super.init(nibName: nil, bundle: nil)
     title = repository.name

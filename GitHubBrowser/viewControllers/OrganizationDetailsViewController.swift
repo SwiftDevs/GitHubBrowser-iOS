@@ -83,46 +83,44 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
-        var org = GitHubOrganization(name: organizationName,
-            onInflated: {
+        var org = GitHubOrganization(name: organizationName, onInflated: {
             (org: GitHubResource) -> () in
+
             if let org = org as? GitHubOrganization {
-                self.organization = org
-                self.locationLabel.text = org.location
-                self.nameLabel.text = org.name
+                self.organization          = org
+                self.organization.name     = self.organizationName
+                self.organization.location = "San Francisco, CA"
+                self.locationLabel.text = self.organization.location
+                self.nameLabel.text     = self.organization.name
 
                 dispatch_async(dispatch_get_main_queue(), {
-                    var test =  UIImage(data: NSData(contentsOfURL: 
-                            NSURL(string: self.organization.avatarUrl)
+                    self.organization.avatarUrl = "https://avatars0.githubusercontent.com/u/5404851?v=2&s=200"
+                    if self.organization.avatarUrl != nil {
+                        var test =  UIImage(data: NSData(contentsOfURL: 
+                                NSURL(string: self.organization.avatarUrl)
+                            )
                         )
-                    )
-                    self.organizationImageView.image = test
-                    self.activityIndicatorView.stopAnimating()
+                        self.organizationImageView.image = test
+                        self.activityIndicatorView.stopAnimating()
+                    }
                 });
             }
         })
-        org.getRepositories {
-            (repositories: [GitHubRepository]) -> () in
-            // do something
-        }
+        // org.getRepositories {
+        //     (repositories: [GitHubRepository]) -> () in
+
+        //     // self.mainTableView.reloadData()
+        // }
     }
 
     // Methods
-    class RepositoryStruct {
-        var name: String
-        init(name: String) {
-            self.name = name
-        }
+    func objects() -> [GitHubRepository] {
+        // if self.organization.repositories != nil {
+        //     return self.organization.repositories
+        // }
+        return [GitHubRepository]()
     }
-    func objects() -> [RepositoryStruct] {
-        var array = [RepositoryStruct]()
-        for i in 1...10 {
-          let repo = RepositoryStruct(name: "Repository \(i)")
-          array.append(repo)
-        }
-        return array
-    }
-    func objectAtIndexPath(indexPath: NSIndexPath) -> RepositoryStruct {
+    func objectAtIndexPath(indexPath: NSIndexPath) -> GitHubRepository {
         return objects()[indexPath.row]
     }
 
@@ -137,7 +135,8 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         let tableViewCell = UITableViewCell(style: UITableViewCellStyle.Value1,
           reuseIdentifier: reuseIdentifier
         )
-        tableViewCell.textLabel?.text = objectAtIndexPath(indexPath).name
+        let repository = objectAtIndexPath(indexPath)
+        tableViewCell.textLabel?.text = repository.name
         tableViewCell.textLabel?.font = UIFont.systemFontOfSize(18)
         return tableViewCell
     }

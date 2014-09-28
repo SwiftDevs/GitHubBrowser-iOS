@@ -53,8 +53,8 @@ class GitHubRepository: GitHubResource {
         self.size = repositoryDict["size"] as? Int
 
         var ownerDict = repositoryDict["owner"] as? NSDictionary
-        var owner = GitHubUser(userDict: ownerDict)
-        self.owner = owner
+//        var owner = GitHubUser(userDict: ownerDict)
+//        self.owner = owner
     }
 }
 
