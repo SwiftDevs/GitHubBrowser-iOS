@@ -12,6 +12,8 @@ let GITHUB_API_BASE_URL = "https://api.github.com"
 
 class GitHubClient {
 
+    var cache = [String:AnyObject]()
+
     class var sharedInstance : GitHubClient {
         struct Static {
             static var token : dispatch_once_t = 0
@@ -27,14 +29,20 @@ class GitHubClient {
         var apiUrl = "\(GITHUB_API_BASE_URL)\(resource)"
         let request = NSMutableURLRequest(URL: NSURL.URLWithString(apiUrl))
 
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) in
-            var errorValue: NSError? = nil
-            let result: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue)
-            if result != nil {
-                callback(result!)
-            } else {
-                HTKNotificationUtils.displayNetworkErrorMessage()
-            }
-        })
+        var cachedResult: AnyObject? = cache[apiUrl]
+        if cachedResult != nil {
+            callback(cachedResult!)
+        } else {
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: { (response, data, error) in
+                var errorValue: NSError? = nil
+                let result: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &errorValue)
+                if result != nil {
+                    callback(result!)
+                    self.cache[apiUrl] = result!
+                } else {
+                    HTKNotificationUtils.displayNetworkErrorMessage()
+                }
+            })
+        }
     }
 }

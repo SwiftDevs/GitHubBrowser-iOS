@@ -70,14 +70,16 @@ class GitHubOrganization: GitHubResource {
         var resource = "\(self.getResourceURL())/repos"
         GitHubClient.sharedInstance.makeApiRequest(resource, callback: {
             (results: AnyObject) -> () in
-            if results["message"] == nil {
-                var resultsJSONArray = results as [NSDictionary]
-                println(resultsJSONArray)
-                var repositories = resultsJSONArray.map {
+            var resultsJSONArray = results as? [NSDictionary]
+            if resultsJSONArray != nil {
+                var repositories = resultsJSONArray!.map {
                     (repositoryDict: NSDictionary) -> GitHubRepository in
                     GitHubRepository(repositoryDict: repositoryDict)
                 }
                 self.repositories = repositories
+            } else {
+                HTKNotificationUtils.displayNetworkErrorMessage()
+                println(results)
             }
         })
     }
