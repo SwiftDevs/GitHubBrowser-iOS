@@ -43,8 +43,10 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController,
         )
         self.detailsView!.addSubview(webView!)
 
-        let tab1 = UITabBarItem(title: "Readme", image: nil, tag: 0)
-        let tab2 = UITabBarItem(title: "Files", image: nil, tag: 1)
+        let paper  = UIImage(named: "papers")
+        let tab1   = UITabBarItem(title: "Readme", image: paper, tag: 0)
+        let folder = UIImage(named: "folder")
+        let tab2   = UITabBarItem(title: "Files", image: folder, tag: 1)
         tabBar = UITabBar(frame:
             CGRect(
                 x: 0,
