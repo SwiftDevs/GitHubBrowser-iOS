@@ -25,3 +25,16 @@ Here's an animated GIF (made with [LiceCAP](http://www.cockos.com/licecap/)) of 
 
 ## Features
 
+* Drill-down navigation of GitHub repositories and popping in/out of Navigation Controller
+* [x] Organization Details
+* [x] Browse repositories in Organization
+* [x] Display `README` in webview
+* [-] Repository Details
+* [-] File Details
+
+## Credits
+
+* Jonathan Tsai [@jontsai](https://github.com/jontsai)
+* Tommy Dang [QuantumVenturess](https://github.com/QuantumVenturess)
+* Tad Park [@tadp](https://github.com/tadp)
+* Damon Wadsworth [@daymun](https://github.com/daymun)
