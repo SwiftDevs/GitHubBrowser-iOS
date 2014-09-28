@@ -25,13 +25,20 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
         super.viewDidLoad()
         let screen = screenRect()
         descriptionLabel = UILabel()
-        descriptionLabel!.backgroundColor = UIColor.redColor()
+        descriptionLabel!.backgroundColor = UIColor.blackColor()
 
         detailsView = UIView(frame: screen)
         detailsView!.backgroundColor = UIColor.whiteColor()
         detailsView!.addSubview(descriptionLabel!)
 
-        webView = UIWebView(frame: screen)
+        webView = UIWebView(frame:
+            CGRect(
+                x: 0,
+                y: 20 + 44,
+                width: CGRectGetWidth(screen),
+                height: CGRectGetHeight(screen) - (20 + 44)
+            )
+        )
         webView!.backgroundColor = UIColor.redColor()
 
         // self.view.addSubview(detailsView!)
@@ -51,8 +58,9 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let string = "http://google.com"
-        let url = NSURL(string: string)
+        let string  = repository.getReadmeUrl()
+        println(repository.getReadmeUrl())
+        let url     = NSURL(string: string)
         let request = NSURLRequest(URL: url)
         webView!.loadRequest(request)
     }
