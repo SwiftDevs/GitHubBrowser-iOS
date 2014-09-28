@@ -42,18 +42,18 @@ class GitHubRepository: GitHubResource {
 
     init(repositoryDict: NSDictionary) {
         self.name = repositoryDict["name"] as? String
-        self.fullName = repositoryDict["fullName"] as? String
+        self.fullName = repositoryDict["full_name"] as? String
         self.description = repositoryDict["description"] as? String
         self.url = repositoryDict["url"] as? String
-        self.htmlUrl = repositoryDict["htmlUrl"] as? String
-        self.cloneUrl = repositoryDict["cloneUrl"] as? String
-        self.gitUrl = repositoryDict["gitUrl"] as? String
-        self.sshUrl = repositoryDict["sshUrl"] as? String
-        self.mirrorUrl = repositoryDict["mirrorUrl"] as? String
+        self.htmlUrl = repositoryDict["html_url"] as? String
+        self.cloneUrl = repositoryDict["clone_url"] as? String
+        self.gitUrl = repositoryDict["git_url"] as? String
+        self.sshUrl = repositoryDict["ssh_url"] as? String
+        self.mirrorUrl = repositoryDict["mirror_url"] as? String
         self.homepage = repositoryDict["homepage"] as? String
-        self.forksCount = repositoryDict["forksCount"] as? Int
-        self.stargazersCount = repositoryDict["stargazersCount"] as? Int
-        self.watchersCount = repositoryDict["watchersCount"] as? Int
+        self.forksCount = repositoryDict["forks_count"] as? Int
+        self.stargazersCount = repositoryDict["stargazers_count"] as? Int
+        self.watchersCount = repositoryDict["watchers_count"] as? Int
         self.size = repositoryDict["size"] as? Int
 
         if let ownerDict = repositoryDict["owner"] as? NSDictionary {

@@ -8,9 +8,13 @@
 
 import UIKit
 
-class RepositoryDetailsViewController: GitHubBrowserTableViewController {
+class RepositoryDetailsViewController: GitHubBrowserTableViewController,
+    UITabBarDelegate {
     var descriptionLabel: UILabel?
+    var detailsView: UIView?
     var repository: GitHubRepository
+    var webView: UIWebView?
+    var tabBar: UITabBar?
 
     init(repository repo: GitHubRepository) {
         repository = repo
@@ -23,8 +27,42 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
         super.viewDidLoad()
         let screen = screenRect()
         descriptionLabel = UILabel()
-        descriptionLabel!.backgroundColor = UIColor.redColor()
-        self.view.addSubview(descriptionLabel!)
+        descriptionLabel!.backgroundColor = UIColor.blackColor()
+
+        detailsView = UIView(frame: screen)
+        detailsView!.backgroundColor = UIColor.whiteColor()
+        // detailsView!.addSubview(descriptionLabel!)
+
+        webView = UIWebView(frame:
+            CGRect(
+                x: 0,
+                y: 20 + 44,
+                width: CGRectGetWidth(screen),
+                height: CGRectGetHeight(screen) - (20 + 44 + 48)
+            )
+        )
+        self.detailsView!.addSubview(webView!)
+
+        let paper  = UIImage(named: "papers")
+        let tab1   = UITabBarItem(title: "Readme", image: paper, tag: 0)
+        let folder = UIImage(named: "folder")
+        let tab2   = UITabBarItem(title: "Files", image: folder, tag: 1)
+        tabBar = UITabBar(frame:
+            CGRect(
+                x: 0,
+                y: CGRectGetHeight(screen) - 48,
+                width: CGRectGetWidth(screen),
+                height: 48
+            )
+        )
+        tabBar!.items = [tab1, tab2]
+        tabBar!.selectedItem = tab1
+        tabBar!.delegate = self
+
+        self.view.addSubview(detailsView!)
+        self.mainTableView.hidden = true
+
+        self.view.addSubview(tabBar!)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -35,5 +73,24 @@ class RepositoryDetailsViewController: GitHubBrowserTableViewController {
             limitedToNumberOfLines: 0
         )
         self.descriptionLabel!.frame = rect
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let string  = repository.getReadmeUrl()
+        println(repository.getReadmeUrl())
+        let url     = NSURL(string: string)
+        let request = NSURLRequest(URL: url)
+        webView!.loadRequest(request)
+    }
+
+    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        if item.tag == 0 {
+            self.detailsView!.hidden  = false
+            self.mainTableView.hidden = true
+        } else if item.tag == 1 {
+            self.detailsView!.hidden  = true
+            self.mainTableView.hidden = false
+        }
     }
 }
