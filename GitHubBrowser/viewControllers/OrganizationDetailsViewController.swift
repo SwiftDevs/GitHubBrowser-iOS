@@ -122,7 +122,7 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
     func objects() -> [GitHubRepository] {
         if self.organization != nil && 
             self.organization.repositories.count > 0 {
-                
+
             return self.organization.repositories
         }
         return [repo1]
@@ -144,8 +144,28 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
           reuseIdentifier: reuseIdentifier
         )
         let repository = objectAtIndexPath(indexPath)
-        tableViewCell.textLabel?.text = repository.name
-        tableViewCell.textLabel?.font = UIFont.systemFontOfSize(18)
+        let nameLabel = UILabel(frame: 
+            CGRect(
+                x: 15,
+                y: 22,
+                width: 300,
+                height: 27
+            )
+        ) 
+        nameLabel.font = UIFont.boldSystemFontOfSize(18)
+        nameLabel.text = repository.name
+        tableViewCell.contentView.addSubview(nameLabel)
+        let descLabel = UILabel(frame:
+            CGRect(
+                x: 15,
+                y: 22 + 27,
+                width: 300,
+                height: 22
+            )
+        )
+        descLabel.text = repository.description
+        descLabel.textColor = self.locationLabel.textColor
+        tableViewCell.contentView.addSubview(descLabel)
         return tableViewCell
     }
     override func tableView(tableView: UITableView,
@@ -163,5 +183,9 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         println(repository.name)
         navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    func tableView(tableView: UITableView, 
+        heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 88
     }
 }
