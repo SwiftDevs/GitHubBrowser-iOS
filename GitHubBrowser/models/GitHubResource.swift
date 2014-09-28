@@ -19,7 +19,9 @@ class GitHubResource {
 
     func inflate() {
         var resource = self.getResourceURL()
-        GitHubClient.sharedInstance.makeApiRequest(resource, callback: self.inflater)
+        if resource != "" {
+            GitHubClient.sharedInstance.makeApiRequest(resource, callback: self.inflater)
+        }
     }
 
     // get the relative path URL for this resource
