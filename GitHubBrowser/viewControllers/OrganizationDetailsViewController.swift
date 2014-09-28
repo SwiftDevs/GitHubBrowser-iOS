@@ -88,13 +88,13 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
 
             if let org = org as? GitHubOrganization {
                 self.organization          = org
-                self.organization.name     = self.organizationName
-                self.organization.location = "San Francisco, CA"
+                // self.organization.name     = self.organizationName
+                // self.organization.location = "San Francisco, CA"
                 self.locationLabel.text = self.organization.location
                 self.nameLabel.text     = self.organization.name
 
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.organization.avatarUrl = "https://avatars0.githubusercontent.com/u/5404851?v=2&s=200"
+                    // self.organization.avatarUrl = "https://avatars0.githubusercontent.com/u/5404851?v=2&s=200"
                     if self.organization.avatarUrl != nil {
                         var test =  UIImage(data: NSData(contentsOfURL: 
                                 NSURL(string: self.organization.avatarUrl)
@@ -106,18 +106,18 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
                 });
             }
         })
-        // org.getRepositories {
-        //     (repositories: [GitHubRepository]) -> () in
+        org.getRepositories {
+            (repositories: [GitHubRepository]) -> () in
 
-        //     // self.mainTableView.reloadData()
-        // }
+            self.mainTableView.reloadData()
+        }
     }
 
     // Methods
     func objects() -> [GitHubRepository] {
-        // if self.organization.repositories != nil {
-        //     return self.organization.repositories
-        // }
+        if self.organization != nil {
+            return self.organization.repositories
+        }
         return [GitHubRepository]()
     }
     func objectAtIndexPath(indexPath: NSIndexPath) -> GitHubRepository {
