@@ -37,7 +37,7 @@ class GitHubUser: GitHubResource {
         
     }
 
-    init(userDict: NSDictionary) {
+    init(fromDict userDict: NSDictionary) {
         self.login = userDict["login"] as? String
         self.id = userDict["id"] as? Int
         self.avatar_url = userDict["avatar_url"] as? String

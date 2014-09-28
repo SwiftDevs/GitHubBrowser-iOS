@@ -46,6 +46,12 @@ class GitHubOrganization: GitHubResource {
         super.init(onInflated)
     }
 
+    init(fromDict organizationDict: NSDictionary) {
+        self.handle = ""
+        super.init()
+        inflater(organizationDict as AnyObject)
+    }
+
     override func getResourceURL() -> String {
         var resource = "\(GITHUB_ORGANIZATION_RESOURCE_BASE)\(self.handle)"
         return resource

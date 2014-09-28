@@ -37,7 +37,8 @@ class GitHubRepository: GitHubResource {
     //    "updated_at": "2011-01-26T19:14:43Z",
 
     // Repository relations
-    var owner: GitHubUser!
+    var organizationOwner: GitHubOrganization!
+    var userOwner: GitHubUser!
     var readme: GitHubRepositoryContent!
 
     init(repositoryDict: NSDictionary) {
@@ -57,8 +58,15 @@ class GitHubRepository: GitHubResource {
         self.size = repositoryDict["size"] as? Int
 
         if let ownerDict = repositoryDict["owner"] as? NSDictionary {
-            var owner = GitHubUser(userDict: ownerDict)
-            self.owner = owner
+//            println(ownerDict)
+            var ownerType = ownerDict["type"] as? String
+            if ownerType == "Organization" {
+                var organizationOwner = GitHubOrganization(fromDict: ownerDict)
+                self.organizationOwner = organizationOwner
+            } else {
+                var userOwner = GitHubUser(fromDict: ownerDict)
+                self.userOwner = userOwner
+            }
         }
 
         super.init()
@@ -66,10 +74,21 @@ class GitHubRepository: GitHubResource {
 
     override func getResourceURL() -> String {
         var resource = ""
-        if self.owner != nil {
-            resource = "/repos/\(self.owner.login)/\(self.name)"
+        var ownerLogin = self.getOwnerLogin()
+        if ownerLogin != "" {
+            resource = "/repos/\(ownerLogin)/\(self.name)"
         }
         return resource
+    }
+
+    func getOwnerLogin() -> String {
+        var ownerLogin = ""
+        if self.organizationOwner != nil {
+            ownerLogin = self.organizationOwner.login
+        } else if self.userOwner != nil {
+            ownerLogin = self.userOwner.login
+        }
+        return ownerLogin
     }
 
     func getReadme() {
