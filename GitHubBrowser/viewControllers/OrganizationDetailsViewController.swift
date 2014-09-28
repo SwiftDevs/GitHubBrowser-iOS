@@ -15,6 +15,7 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
     var nameLabel: UILabel!
     var organization: GitHubOrganization!
     var organizationImageView: UIImageView!
+    var activityIndicatorView: UIActivityIndicatorView!
 
     override init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -39,6 +40,21 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         organizationImageView.backgroundColor = UIColor(
             white: 0, alpha: 0.7
         )
+        activityIndicatorView = UIActivityIndicatorView(
+            activityIndicatorStyle: UIActivityIndicatorViewStyle.White
+        )
+        organizationImageView.addSubview(
+            activityIndicatorView
+        )
+        activityIndicatorView.frame = CGRect(
+            x: (CGRectGetWidth(organizationImageView.frame) - 
+                CGRectGetWidth(activityIndicatorView.frame)) * 0.5,
+            y: (CGRectGetHeight(organizationImageView.frame) -
+                CGRectGetHeight(activityIndicatorView.frame)) * 0.5,
+            width: CGRectGetWidth(activityIndicatorView.frame),
+            height: CGRectGetHeight(activityIndicatorView.frame)
+        )
+        activityIndicatorView.startAnimating()
         tableHeaderView.addSubview(organizationImageView)
 
         nameLabel = UILabel(frame:
@@ -75,15 +91,14 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
                 self.locationLabel.text = org.location
                 self.nameLabel.text = org.name
 
-                dispatch_async(dispatch_get_global_queue( 
-                    DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                dispatch_async(dispatch_get_main_queue(), {
                     var test =  UIImage(data: NSData(contentsOfURL: 
                             NSURL(string: self.organization.avatarUrl)
                         )
                     )
                     self.organizationImageView.image = test
-                })
-
+                    self.activityIndicatorView.stopAnimating()
+                });
             }
         })
     }
@@ -118,9 +133,8 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         let tableViewCell = UITableViewCell(style: UITableViewCellStyle.Value1,
           reuseIdentifier: reuseIdentifier
         )
-        tableViewCell.contentView.backgroundColor = UIColor(white: 0, alpha: 0.9)
         tableViewCell.textLabel?.text = objectAtIndexPath(indexPath).name
-        tableViewCell.textLabel?.font = UIFont.systemFontOfSize(15)
+        tableViewCell.textLabel?.font = UIFont.systemFontOfSize(18)
         return tableViewCell
     }
     override func tableView(tableView: UITableView,
