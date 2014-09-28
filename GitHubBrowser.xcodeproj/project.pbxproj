@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		033287C219D7A977008FDA0C /* inspectocat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 033287C119D7A977008FDA0C /* inspectocat.jpg */; };
 		565A457319D7687500B48084 /* GitHubOrganization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457219D7687500B48084 /* GitHubOrganization.swift */; };
 		565A457519D7689C00B48084 /* GitHubResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457419D7689C00B48084 /* GitHubResource.swift */; };
 		565A457719D77C9100B48084 /* GitHubRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A457619D77C9100B48084 /* GitHubRepository.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		033287C119D7A977008FDA0C /* inspectocat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = inspectocat.jpg; path = Images.xcassets/inspectocat.jpg; sourceTree = "<group>"; };
 		4B2CEEB10F3C70BED94B9D11 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		565A457219D7687500B48084 /* GitHubOrganization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubOrganization.swift; path = models/GitHubOrganization.swift; sourceTree = "<group>"; };
 		565A457419D7689C00B48084 /* GitHubResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubResource.swift; path = models/GitHubResource.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		56E0832D19D749620099A356 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				033287C119D7A977008FDA0C /* inspectocat.jpg */,
 				56E0837219D74C9F0099A356 /* secrets.xcconfig */,
 				56E0832E19D749620099A356 /* Info.plist */,
 			);
@@ -412,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033287C219D7A977008FDA0C /* inspectocat.jpg in Resources */,
 				56E0837319D74C9F0099A356 /* secrets.xcconfig in Resources */,
 				ABEECFCE19D754EB0020D266 /* secrets.xcconfig in Resources */,
 				ABA6930C19D7A846006B2112 /* folder@2x.png in Resources */,
