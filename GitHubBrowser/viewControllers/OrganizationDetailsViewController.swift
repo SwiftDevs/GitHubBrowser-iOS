@@ -83,6 +83,7 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
     }
 
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         var org = GitHubOrganization(name: organizationName, onInflated: {
             (org: GitHubResource) -> () in
 
