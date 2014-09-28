@@ -34,7 +34,7 @@ class GitHubOrganization: GitHubResource {
     var htmlURL: String!
 
     // Organization relations
-    var repositories: [GitHubRepository]!
+    lazy var repositories: [GitHubRepository] = [GitHubRepository]()
 
     init(name: String, onInflated: ((GitHubResource) -> ())? = nil) {
         self.handle = name
