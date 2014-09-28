@@ -113,12 +113,20 @@ class OrganizationDetailsViewController: GitHubBrowserTableViewController {
         }
     }
 
+    let repo1 = GitHubRepository(repositoryDict: [
+        "description": "Description",
+        "name": "Repo 1"
+    ])
+
     // Methods
     func objects() -> [GitHubRepository] {
-        if self.organization != nil {
+        if self.organization != nil && 
+            self.organization.repositories.count > 0 {
+                
             return self.organization.repositories
         }
-        return [GitHubRepository]()
+        return [repo1]
+        // return [GitHubRepository]()
     }
     func objectAtIndexPath(indexPath: NSIndexPath) -> GitHubRepository {
         return objects()[indexPath.row]
